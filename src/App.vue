@@ -2,6 +2,8 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+<!--    // 添加的按钮-->
+    <el-button>Default</el-button>
   </div>
   <router-view/>
 </template>
