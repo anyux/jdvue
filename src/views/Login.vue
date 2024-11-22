@@ -38,6 +38,8 @@
 // 内部数据双向绑定的引用
 //双向数据绑定
 import {ref,reactive} from "vue";
+// 引入创建的api/user.js组件
+import {test,login} from "@/api/user";
 
 // 单向数据输出,双向数据绑定,还需要Api方法的调用
 // formSize.value
@@ -85,10 +87,14 @@ const ruleFormRef = ref();
 // 提交动作,传递方式2,纯函数,复用性高
 const doSubmit =  (form) => {
   console.log("submit", ruleForm);
-
-  form.validate((valid,fields) => {
+  // 添加aynsc异步
+  form.validate(async (valid,fields) => {
     if (valid) {
       console.log("submit 纯函数");
+    //   使用引入的test,login方法
+     // 使用异步方法
+      let res = await test()
+      console.log(res.data)
     }else {
       console.log("error submit", fields);
     }
